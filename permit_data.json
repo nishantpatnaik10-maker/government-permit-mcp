@@ -1,0 +1,14 @@
+{
+  "DA-2026-4567": {
+    "permitId": "DA-2026-4567",
+    "status": "Under Review",
+    "planningOfficer": "Sarah Mitchell",
+    "slaDaysRemaining": 5
+  },
+  "DA-2026-4568": {
+    "permitId": "DA-2026-4568",
+    "status": "Approved",
+    "planningOfficer": "Michael Chan",
+    "slaDaysRemaining": 0
+  }
+}
