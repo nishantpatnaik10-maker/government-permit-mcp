@@ -1,20 +1,15 @@
-from mcp.server.fastmcp import FastMCP
+from fastapi import FastAPI
 import json
 
-mcp = FastMCP("Government Permit MCP")
+app = FastAPI()
 
 with open("permit_data.json") as f:
     permits = json.load(f)
 
-@mcp.tool()
-def get_permit_status(permit_id: str):
+@app.get("/")
+def health():
+    return {"status": "running"}
 
-    if permit_id not in permits:
-        return {
-            "status": "Not Found"
-        }
-
-    return permits[permit_id]
-
-if __name__ == "__main__":
-    mcp.run()
+@app.get("/permit/{permit_id}")
+def get_permit(permit_id: str):
+    return permits.get(permit_id, {"status": "Not Found"})
